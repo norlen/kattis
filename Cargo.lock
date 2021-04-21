@@ -12,3 +12,11 @@ version = "0.1.0"
 name = "hello"
 version = "0.1.0"
 
+[[package]]
+name = "planina"
+version = "0.1.0"
+
+[[package]]
+name = "quadrant"
+version = "0.1.0"
+

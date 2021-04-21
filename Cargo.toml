@@ -4,5 +4,7 @@
 members = [
     "a_different_problem",
     "hello",
-    "autori"
+    "autori",
+    "quadrant",
+    "planina",
 ]
