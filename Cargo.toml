@@ -1,0 +1,8 @@
+
+[workspace]
+
+members = [
+    "a_different_problem",
+    "hello",
+    "autori"
+]
