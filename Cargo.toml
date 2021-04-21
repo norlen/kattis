@@ -7,4 +7,13 @@ members = [
     "autori",
     "quadrant",
     "planina",
+    "divideby100",
+    "whatdoesthefoxsay",
+    "greetings2",
+    "tarifa",
+    "twostones",
+    "timeloop",
+    "stopwatch",
+    "carrots",
+    "addemup",
 ]

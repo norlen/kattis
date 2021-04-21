@@ -5,7 +5,23 @@ name = "a_different_problem"
 version = "0.1.0"
 
 [[package]]
+name = "addemup"
+version = "0.1.0"
+
+[[package]]
 name = "autori"
+version = "0.1.0"
+
+[[package]]
+name = "carrots"
+version = "0.1.0"
+
+[[package]]
+name = "divideby100"
+version = "0.1.0"
+
+[[package]]
+name = "greetings2"
 version = "0.1.0"
 
 [[package]]
@@ -18,5 +34,25 @@ version = "0.1.0"
 
 [[package]]
 name = "quadrant"
+version = "0.1.0"
+
+[[package]]
+name = "stopwatch"
+version = "0.1.0"
+
+[[package]]
+name = "tarifa"
+version = "0.1.0"
+
+[[package]]
+name = "timeloop"
+version = "0.1.0"
+
+[[package]]
+name = "twostones"
+version = "0.1.0"
+
+[[package]]
+name = "whatdoesthefoxsay"
 version = "0.1.0"
 
