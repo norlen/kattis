@@ -93,6 +93,10 @@ name = "twostones"
 version = "0.1.0"
 
 [[package]]
+name = "watchdog"
+version = "0.1.0"
+
+[[package]]
 name = "whatdoesthefoxsay"
 version = "0.1.0"
 
