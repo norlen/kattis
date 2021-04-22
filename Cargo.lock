@@ -17,6 +17,10 @@ name = "carrots"
 version = "0.1.0"
 
 [[package]]
+name = "cold"
+version = "0.1.0"
+
+[[package]]
 name = "divideby100"
 version = "0.1.0"
 
@@ -33,11 +37,31 @@ name = "jackolanternjuxtaposition"
 version = "0.1.0"
 
 [[package]]
+name = "pet"
+version = "0.1.0"
+
+[[package]]
+name = "pieceofcake2"
+version = "0.1.0"
+
+[[package]]
 name = "planina"
 version = "0.1.0"
 
 [[package]]
+name = "pot"
+version = "0.1.0"
+
+[[package]]
+name = "qaly"
+version = "0.1.0"
+
+[[package]]
 name = "quadrant"
+version = "0.1.0"
+
+[[package]]
+name = "r2"
 version = "0.1.0"
 
 [[package]]
