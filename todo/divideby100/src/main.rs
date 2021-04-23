@@ -6,22 +6,29 @@ fn main() {
     io::stdin().lock().read_line(&mut n).unwrap();
     io::stdin().lock().read_line(&mut m).unwrap();
 
-    let i = n.len() - m.len();
-    let mut nn = n[..i].to_owned();
-    if i != n.len() {
-        nn.push('.');
-        nn.push_str(&n[i..]);
-    }
+    let after_dec = m.len();
+    let (before, after) = if after_dec <= n.len() {
+        let i = n.len() - after_dec;
+        (n[..i].to_owned(), n[i..].to_owned())
+    } else {
+        let zeroes = after_dec - n.len();
+        let zeroes = (0..zeroes).map(|_i| '0').collect::<String>();
+        ("0".to_owned(), zeroes + &n)
+    };
 
-    let nn = nn.trim_end();
-    let nn = nn.trim_end_matches('0');
-    let mut nn = nn.trim_end_matches('.').to_owned();
+    let before = if before.len() == 0 {
+        "0".to_owned()
+    } else {
+        before
+    };
 
-    // Fix .d to 0.d
-    if nn.as_bytes()[0] == '.' as u8 {
-        let mut n = "0".to_owned();
-        n.push_str(nn.as_str());
-        nn = n;
-    }
-    println!("{}", nn);
+    let after = after.trim();
+    let after = after.trim_end_matches('0');
+
+    let out = if after.len() == 0 {
+        before
+    } else {
+        format!("{}.{}", before, after)
+    };
+    println!("{}", out);
 }

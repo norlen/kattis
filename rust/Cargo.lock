@@ -5,10 +5,6 @@ name = "a_different_problem"
 version = "0.1.0"
 
 [[package]]
-name = "addemup"
-version = "0.1.0"
-
-[[package]]
 name = "autori"
 version = "0.1.0"
 
@@ -18,10 +14,6 @@ version = "0.1.0"
 
 [[package]]
 name = "cold"
-version = "0.1.0"
-
-[[package]]
-name = "divideby100"
 version = "0.1.0"
 
 [[package]]
