@@ -5,8 +5,8 @@ using namespace std;
 
 double G = 9.81;
 
-double deg2rad(int deg) {
-    return static_cast<double>(deg) * M_PI / 180.0;
+double deg2rad(double deg) {
+    return deg * M_PI / 180.0;
 }
 
 int main() {
@@ -21,9 +21,6 @@ int main() {
         double t = x1 / (v0 * cosf64(theta));
         double y = v0 * t * sinf64(theta) - 1.0/2.0 * G * t * t;
 
-        cout << i+1 << ": y: " << y;
-        cout << ", h1: " << h1;
-        cout << ", h2: " << h2 << endl;
         if ((h1 + 1.0) < y && y < (h2 - 1.0)) {
             cout << "Safe" << endl;
         } else {
