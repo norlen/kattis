@@ -4,22 +4,16 @@
 
 using namespace std;
 
-int num_marks = 28;
-double mark_rad = M_PI * 2.0 / (double)(num_marks);
-double radius = 30.0;
-double pickup_time = 1.0;
-double speed = 15.0;
-double diam = radius*2*M_PI;
+const int NUM_MARKS = 28;
+const double RAD_PER_IND = 2.0 * M_PI / 28.0;
+const double PICKUP_TIME = 1.0;
+const double SPEED = 15.0;
+const double DIST_PER_RAD = 30.0;
 
 int get_ind(char ch) {
     if (ch == ' ') return 26;
     if (ch == '\'') return 27;
     return ch - 'A';
-}
-
-double char_to_rad(char ch) {
-    double rad = (double)get_ind(ch) * mark_rad;
-    return rad;
 }
 
 int main() {
@@ -33,16 +27,17 @@ int main() {
         getline(cin, in);
 
         double distance = 0.0;
-        double prev = char_to_rad(in[0]);
+        int prev = get_ind(in[0]);
         for (int j = 1; j < in.length(); ++j) {
-            double curr = char_to_rad(in[j]);
-            double rad_diff = abs(curr - prev);
-            double d = diam * rad_diff / (2*M_PI);
-            cout << "in[p]=" << in[j-1] << " r=" << prev << " in[c]=" << in[j] << " r=" << curr << " diff=" << rad_diff << " dist=" << d << endl;
+            int curr = get_ind(in[j]);
+            int diff = abs(prev - curr);
+            if (diff > 14) diff = NUM_MARKS - diff;
+
+            double ran = DIST_PER_RAD * (RAD_PER_IND * (double)diff);
             prev = curr;
-            distance += d;
+            distance += ran;
         }
-        double time = in.length() * pickup_time + distance / speed;
-        cout << time << endl;
+        double time = in.length() * PICKUP_TIME + distance / SPEED;
+        cout << fixed << setprecision(10) << time << endl;
     }
 }
