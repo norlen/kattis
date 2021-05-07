@@ -1,21 +1,21 @@
 #include <iostream>
-// TODO!
+
 using namespace std;
 
 int main() {
     int n, m;
-    char ch;
     cin >> n >> m;
-
-    string a_last, b, a;
+    string last, b, a;
+    cin >> last >> b;
+    a.resize(m);
+    
     for (int i = 0; i < n; ++i) {
-        cin >> ch;
-        a_last.push_back(ch);
+        a[a.length() - i - 1] = last[last.length() - i - 1];
     }
-    for (int i = 0; i < m; ++i) {
-        cin >> ch;
-        b.push_back(ch);
+
+    for (int i = 0; i < m-n; ++i) {
+        int d = b[b.length() - i - 1] - a[a.length() - i - 1];
+        a[a.length() - last.length() - i - 1] = 'a' + (d + 26) % 26;
     }
-    cout << "a_last: [" << a_last << "]" << endl;
-    cout << "b     : [" << b << "]" << endl;
+    cout << a << endl;
 }

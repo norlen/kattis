@@ -1,46 +1,43 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
-bool is_appealing(int stars, int r0, int r1) {
-    if (r0 + r1 > stars) return false;
-    if (r0 + r1 == stars) return true;
+int main() {
+    int stars;
+    cin >> stars;
 
-    for (int i = 2; r0*i < stars; ++i) {
-        int remaining = stars - r0*i;
-        for (int j = -1; j < 2; ++j) {
-            if ((remaining / (i + j) == r1) && (remaining % (i + j) == 0)) {
-                return true;
+    cout << stars << ":\n";
+    int max_per_row = stars/2 + stars%2;
+    for (int r0 = 2; r0 <= max_per_row; ++r0) {
+        // A flag pattern is visually appealing if it satisfies the following conditions:
+        // 1. Every other row has the same number of stars.
+        // 2. Adjacent rows differ by no more than one star.
+        // 3. The first row cannot have fewer stars than the second row.
+        for (int r1 = r0-1; r1 <= r0; ++r1) {
+            // Two combinations for each r0 for (2) & (3).
+
+            // Star example: 50 stars: s
+            // * * * * * * 6 stars: a stars
+            //  * * * * *  5 stars: b stars
+            // * * * * * *
+            //  * * * * *
+            // * * * * * *
+            //  * * * * *
+            // * * * * * *
+            //  * * * * *
+            // * * * * * *
+            // So we have to make sure this holds.
+            // s = an + bn || a(n+1) + bn
+            //   = n(a+b)  || an + a + bn
+            //   = n(a+b)  || n(a+b) + a
+            //
+            // n = s/(a+b) || (s - a)/(a+b)
+            
+            // Check if n is an integer.
+            if ((stars % (r0+r1) == 0) || ((stars - r0) % (r0 + r1) == 0)) {
+                cout << r0 << "," << r1 << endl;
             }
         }
-    }
-    return false;
-}
-
-bool is_appealing2(int stars, int r0, int r1) {
-    int s = r0 + r1;
-    int r = stars % s;
-    if (r == 0 || r == r0 || r == r1) {
-        // cout << r0 << "," << r1 << " OK " << "s: " << s << ", r: " << r << "\n";
-        return true;
-    }
-    // cout << r0 << "," << r1 << " NOT OK " << "s: " << s << ", r: " << r << "\n";
-    return false;
-}
-
-int main() {
-    int n;
-    cin >> n;
-
-    int r0 = 2;
-    int r1 = 1;
-
-    cout << n << ":\n";
-    while (r0 + r1 <= n) {
-        if (is_appealing2(n, r0, r1)) {
-            cout << r0 << "," << r1 << endl;
-        }
-        if (r0 - 1 == r1) r1++;
-        else r0++;
     }
 }
