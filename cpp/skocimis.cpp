@@ -3,14 +3,10 @@
 using namespace std;
 
 int main() {
-    int p[3];
-    cin >> p[0] >> p[1] >> p[2];
+    int a, b, c;
+    cin >> a >> b >> c;
 
-    int moves = 0;
-    while (p[1]+1 != p[2]) {
-        moves++;
-        p[0] = p[1]+1;
-        swap(p[0], p[1]);
-    }
-    cout << moves << endl;
+    int ml = b - a - 1;
+    int mr = c - b - 1;
+    cout << max(ml, mr) << endl;
 }
