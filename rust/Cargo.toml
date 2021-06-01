@@ -26,4 +26,5 @@ members = [
     "pet",
     "yoda",
     "watchdog",
+    "pervasiveheartmonitor",
 ]
