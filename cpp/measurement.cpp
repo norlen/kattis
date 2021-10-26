@@ -4,22 +4,17 @@
 using namespace std;
 using ll = long long;
 
-constexpr int conv[7] = { 1000, 12, 3, 22, 10, 8, 3 };
-int toidx(const string& s) {
-    if (tolower(s[0]) == 'f' && tolower(s[1]) == 'u') {
-        return 5;
-    }
+constexpr ll conv[7] = { 1000, 12, 3, 22, 10, 8, 3 };
 
-    switch (tolower(s[0])) {
-        case 't': return 0;
-        case 'i': return 1;
-        case 'f': return 2;
-        case 'y': return 3;
-        case 'c': return 4;
-        //case 'f': return 5;
-        case 'm': return 6;
-        case 'l': return 7;
-    }
+int to_index(const string& s) {
+    if (s == "thou" || s == "th") return 0;
+    else if (s == "inch" || s == "in") return 1;
+    else if (s == "foot" || s == "ft") return 2;
+    else if (s == "yard" || s == "yd") return 3;
+    else if (s == "chain" || s == "ch") return 4;
+    else if (s == "furlong" || s == "fur") return 5;
+    else if (s == "mile" || s == "mi") return 6;
+    else if (s == "league" || s == "lea") return 7;
     return -1;
 }
 
@@ -28,15 +23,15 @@ int main() {
     string source, tmp, dest;
     cin >> d >> source >> tmp >> dest;
     
-    int s = toidx(source);
-    int t = toidx(dest);
-    int mod = 1;
+    int s = to_index(source);
+    int t = to_index(dest);
+    ll mod = 1.0;
     for (int i = min(s, t); i < max(s, t); ++i) {
         mod *= conv[i];
     }
 
     if (s < t) {
-        cout << fixed << setprecision(14) << ((double)d/(double)mod) << endl;
+        cout << fixed << setprecision(20) << ((long double)d/(long double)mod) << endl;
     } else {
         cout << (d*mod) << endl;
     }
