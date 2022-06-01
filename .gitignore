@@ -9,9 +9,7 @@
 
 **/target
 **/build
-
 *.txt
-daily.md
 
 /tryagain
-/cpp2
+/current
